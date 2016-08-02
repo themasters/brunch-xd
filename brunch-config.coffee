@@ -1,40 +1,17 @@
 exports.config =
-  modules:
-    definition: false
-    wrapper: false
+  npm:
+    enabled: false
   files:
     javascripts:
-      defaultExtension: 'coffee'
       joinTo:
-        'public/js/app.js': /^app/
-        'public/js/vendor.js': /^(bower_components|vendor)/
-      order:
-        before: [
-          'app/js/shared/main.coffee'
-          'app/js/user/main.coffee'
-          'app/js/admin/main.coffee'
-        ]
+        'js/app.js': /^app/
+        'js/vendor.js': /^(bower_components|vendor)/
     stylesheets:
       joinTo:
-        'public/css/app.css': /^app/
-        'public/css/vendor.css': /^(bower_components|vendor)/
-      order: [
+        'css/vendor.css': /^(bower_components|vendor)/
+        'css/app.css': /^app/
+      order:
         before: 'app/stylesheets/shared/less'
-      ]
     templates:
       joinTo:
-        'public/js/templates.js': /^app\//
-
-  plugins:
-    jadeNgtemplates:
-      modules: [
-        name: "templates"
-        pattern: /^app\/templates\//
-        url: (path) ->
-          path.replace /\\/g, "/"  # Convert Window-like paths to Unix-like
-          "/#{path}"
-      ]
-      jade:
-        doctype: "html"
-      htmlmin: false
-    afterBrunch: []
+        'js/templates.js': /^app\//
