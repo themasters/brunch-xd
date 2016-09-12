@@ -10,8 +10,6 @@ exports.config =
       joinTo:
         'css/vendor.css': /^(bower_components|vendor)/
         'css/app.css': /^app/
-      order:
-        before: 'app/stylesheets/shared/less'
     templates:
       joinTo:
         'js/templates.js': /^app\//
